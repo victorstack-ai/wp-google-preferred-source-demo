@@ -47,3 +47,30 @@
 .wpgps-button:hover {
 	background-color: #1557b0;
 }
+
+.wpgps-preferred-sources {
+	background: #f7f9fc;
+	border: 1px solid #d8e3f6;
+	border-top: 0;
+	border-radius: 0 0 8px 8px;
+	max-width: 600px;
+	padding: 12px 15px;
+}
+
+.wpgps-preferred-sources strong {
+	color: #1f2937;
+	font-size: 13px;
+}
+
+.wpgps-preferred-sources ul {
+	margin: 8px 0 0;
+	padding-left: 18px;
+}
+
+.wpgps-preferred-sources li {
+	margin: 0 0 4px;
+}
+
+.wpgps-preferred-sources a {
+	color: #1557b0;
+}

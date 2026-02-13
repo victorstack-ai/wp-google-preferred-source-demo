@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Google Preferred Source CTA
  * Plugin URI:  https://github.com/victorstack-ai/wp-google-preferred-source-demo
- * Description: specific CTA to encourage users to add the site as a Google Preferred Source or Follow on Google News.
+ * Description: Promotes Google News follow actions and highlights publisher-selected preferred sources.
  * Version:     1.0.0
  * Author:      VictorStack AI
  * License:     GPLv2 or later
@@ -81,6 +81,14 @@ class WP_Google_Preferred_Source {
 			'wp-google-preferred-source',
 			'wpgps_main_section'
 		);
+
+		add_settings_field(
+			'preferred_sources',
+			'Preferred Source URLs',
+			array( $this, 'preferred_sources_callback' ),
+			'wp-google-preferred-source',
+			'wpgps_main_section'
+		);
 	}
 
 	/**
@@ -91,11 +99,43 @@ class WP_Google_Preferred_Source {
 	 */
 	public function sanitize_options( $input ) {
 		$new_input = array();
+
 		if ( isset( $input['google_news_url'] ) ) {
 			$new_input['google_news_url'] = esc_url_raw( $input['google_news_url'] );
 		}
+
 		$new_input['auto_append'] = isset( $input['auto_append'] ) ? '1' : '0';
+
+		if ( isset( $input['preferred_sources'] ) ) {
+			$new_input['preferred_sources'] = $this->sanitize_sources( $input['preferred_sources'] );
+		}
+
 		return $new_input;
+	}
+
+	/**
+	 * Sanitize preferred source URLs from textarea input.
+	 *
+	 * @param string $raw_sources Newline-separated source URLs.
+	 * @return array<string> Clean source URLs.
+	 */
+	public function sanitize_sources( $raw_sources ) {
+		$raw_sources = is_string( $raw_sources ) ? $raw_sources : '';
+		$lines       = array_map( 'trim', explode( PHP_EOL, $raw_sources ) );
+		$clean       = array();
+
+		foreach ( $lines as $line ) {
+			if ( '' === $line ) {
+				continue;
+			}
+
+			$sanitized = esc_url_raw( $line );
+			if ( '' !== $sanitized ) {
+				$clean[] = $sanitized;
+			}
+		}
+
+		return array_values( array_unique( $clean ) );
 	}
 
 	/**
@@ -115,6 +155,18 @@ class WP_Google_Preferred_Source {
 		$options = get_option( $this->option_name );
 		$checked = ( isset( $options['auto_append'] ) && '1' === $options['auto_append'] ) ? 'checked="checked"' : '';
 		echo '<input type="checkbox" name="' . esc_attr( $this->option_name ) . '[auto_append]" value="1" ' . esc_attr( $checked ) . ' /> Append CTA to the bottom of all posts';
+	}
+
+	/**
+	 * Preferred sources field callback.
+	 */
+	public function preferred_sources_callback() {
+		$options = get_option( $this->option_name );
+		$stored  = isset( $options['preferred_sources'] ) && is_array( $options['preferred_sources'] ) ? $options['preferred_sources'] : array();
+		$value   = implode( PHP_EOL, $stored );
+
+		echo '<textarea name="' . esc_attr( $this->option_name ) . '[preferred_sources]" rows="6" class="large-text code" placeholder="https://example.com/newsroom">' . esc_textarea( $value ) . '</textarea>';
+		echo '<p class="description">One URL per line. These links will be shown as trusted sources below the follow button.</p>';
 	}
 
 	/**
@@ -152,11 +204,13 @@ class WP_Google_Preferred_Source {
 	 */
 	public function render_shortcode() {
 		$options = get_option( $this->option_name );
-		$url     = isset( $options['google_news_url'] ) ? $options['google_news_url'] : '#';
+		$url     = isset( $options['google_news_url'] ) ? $options['google_news_url'] : '';
 
-		if ( empty( $url ) || '#' === $url ) {
+		if ( empty( $url ) ) {
 			return '';
 		}
+
+		$preferred_sources = isset( $options['preferred_sources'] ) && is_array( $options['preferred_sources'] ) ? $options['preferred_sources'] : array();
 
 		$output  = '<div class="wpgps-container">';
 		$output .= '<div class="wpgps-box">';
@@ -167,6 +221,17 @@ class WP_Google_Preferred_Source {
 		$output .= '</div>';
 		$output .= '<a href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer" class="wpgps-button">Follow</a>';
 		$output .= '</div>';
+
+		if ( ! empty( $preferred_sources ) ) {
+			$output .= '<div class="wpgps-preferred-sources"><strong>Preferred Sources</strong><ul>';
+
+			foreach ( $preferred_sources as $source_url ) {
+				$output .= '<li><a href="' . esc_url( $source_url ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $source_url ) . '</a></li>';
+			}
+
+			$output .= '</ul></div>';
+		}
+
 		$output .= '</div>';
 
 		return $output;
@@ -185,7 +250,7 @@ class WP_Google_Preferred_Source {
 
 		$options = get_option( $this->option_name );
 		if ( isset( $options['auto_append'] ) && '1' === $options['auto_append'] ) {
-			$content .= $this->render_shortcode( array() );
+			$content .= $this->render_shortcode();
 		}
 
 		return $content;
