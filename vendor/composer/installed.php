@@ -3,7 +3,7 @@
         'name' => 'victorstack-ai/wp-google-preferred-source',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '89cf3d0c45fde4a14f6c7bad3fab8069505bae1d',
+        'reference' => 'c682d003b735ebb4bbb66f8def485a6cc092e016',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -355,7 +355,7 @@
         'victorstack-ai/wp-google-preferred-source' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '89cf3d0c45fde4a14f6c7bad3fab8069505bae1d',
+            'reference' => 'c682d003b735ebb4bbb66f8def485a6cc092e016',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
