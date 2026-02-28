@@ -1,0 +1,35 @@
+# Directories
+.git/
+.github/
+node_modules/
+tests/
+vendor/
+bin/
+
+# Dev config
+.distignore
+.gitignore
+.phpunit.result.cache
+.editorconfig
+.eslintrc*
+.stylelintrc*
+composer.json
+composer.lock
+package.json
+package-lock.json
+phpcs.xml
+phpcs.xml.dist
+phpstan.neon
+phpstan.neon.dist
+phpunit.xml
+phpunit.xml.dist
+grumphp.yml
+
+# Project files
+SECURITY.md
+CHANGELOG.md
+CONTRIBUTING.md
+
+# OS files
+.DS_Store
+Thumbs.db

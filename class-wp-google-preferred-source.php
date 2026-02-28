@@ -5,7 +5,7 @@
  * Description: Promotes Google News follow actions and highlights publisher-selected preferred sources.
  * Version:     1.0.0
  * Author:      VictorStack AI
- * License:     GPLv2 or later
+ * License:     GPL-2.0-or-later
  * Text Domain: wp-google-preferred-source
  *
  * @package WP_Google_Preferred_Source
