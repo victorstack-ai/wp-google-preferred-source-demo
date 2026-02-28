@@ -756,5 +756,5 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
-    'WP_Google_Preferred_Source' => $baseDir . '/class-wp-google-preferred-source.php',
+    'WP_Google_Preferred_Source' => $baseDir . '/google-preferred-source-cta.php',
 );

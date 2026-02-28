@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'victorstack-ai/wp-google-preferred-source',
+        'name' => 'victorstack-ai/google-preferred-source-cta',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c682d003b735ebb4bbb66f8def485a6cc092e016',
+        'reference' => 'e23217fc0a4dcce3ad09dc29a3714153e7c97ff0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -352,10 +352,10 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'victorstack-ai/wp-google-preferred-source' => array(
+        'victorstack-ai/google-preferred-source-cta' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c682d003b735ebb4bbb66f8def485a6cc092e016',
+            'reference' => 'e23217fc0a4dcce3ad09dc29a3714153e7c97ff0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

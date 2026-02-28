@@ -813,7 +813,7 @@ class ComposerStaticInitfc2894f0ca95b48c0451af753c7511bb
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
-        'WP_Google_Preferred_Source' => __DIR__ . '/../..' . '/class-wp-google-preferred-source.php',
+        'WP_Google_Preferred_Source' => __DIR__ . '/../..' . '/google-preferred-source-cta.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

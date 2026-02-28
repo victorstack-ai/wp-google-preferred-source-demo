@@ -1,4 +1,4 @@
-=== WP Google Preferred Source CTA ===
+=== Google Preferred Source CTA ===
 Contributors: victorstackai
 Tags: google-news, preferred-source, cta, publisher, seo
 Requires at least: 6.0
@@ -12,11 +12,11 @@ Promotes Google News follow actions and highlights publisher-selected preferred 
 
 == Description ==
 
-WP Google Preferred Source CTA helps publishers promote Google News follow actions and highlight preferred source status with customizable call-to-action elements.
+Google Preferred Source CTA helps publishers promote Google News follow actions and highlight preferred source status with customizable call-to-action elements.
 
 == Installation ==
 
-1. Upload the `wp-google-preferred-source` folder to the `/wp-content/plugins/` directory.
+1. Upload the `google-preferred-source-cta` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Configure settings under Settings > Google Preferred Source.
 

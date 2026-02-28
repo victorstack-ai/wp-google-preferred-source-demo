@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: WP Google Preferred Source CTA
- * Plugin URI:  https://github.com/victorstack-ai/wp-google-preferred-source-demo
+ * Plugin Name: Google Preferred Source CTA
+ * Plugin URI:  https://github.com/victorstack-ai/google-preferred-source-cta
  * Description: Promotes Google News follow actions and highlights publisher-selected preferred sources.
  * Version:     1.0.0
  * Author:      VictorStack AI
  * License:     GPL-2.0-or-later
- * Text Domain: wp-google-preferred-source
+ * Text Domain: google-preferred-source-cta
  *
  * @package WP_Google_Preferred_Source
  */
@@ -48,7 +48,7 @@ class WP_Google_Preferred_Source {
 			'Google Preferred Source',
 			'Google Preferred Source',
 			'manage_options',
-			'wp-google-preferred-source',
+			'google-preferred-source-cta',
 			array( $this, 'options_page_html' )
 		);
 	}
@@ -63,14 +63,14 @@ class WP_Google_Preferred_Source {
 			'wpgps_main_section',
 			'Settings',
 			null,
-			'wp-google-preferred-source'
+			'google-preferred-source-cta'
 		);
 
 		add_settings_field(
 			'google_news_url',
 			'Google News Publication URL',
 			array( $this, 'google_news_url_callback' ),
-			'wp-google-preferred-source',
+			'google-preferred-source-cta',
 			'wpgps_main_section'
 		);
 
@@ -78,7 +78,7 @@ class WP_Google_Preferred_Source {
 			'auto_append',
 			'Auto-append to Posts',
 			array( $this, 'auto_append_callback' ),
-			'wp-google-preferred-source',
+			'google-preferred-source-cta',
 			'wpgps_main_section'
 		);
 
@@ -86,7 +86,7 @@ class WP_Google_Preferred_Source {
 			'preferred_sources',
 			'Preferred Source URLs',
 			array( $this, 'preferred_sources_callback' ),
-			'wp-google-preferred-source',
+			'google-preferred-source-cta',
 			'wpgps_main_section'
 		);
 	}
@@ -182,7 +182,7 @@ class WP_Google_Preferred_Source {
 			<form action="options.php" method="post">
 				<?php
 				settings_fields( $this->option_name );
-				do_settings_sections( 'wp-google-preferred-source' );
+				do_settings_sections( 'google-preferred-source-cta' );
 				submit_button();
 				?>
 			</form>

@@ -1,5 +1,5 @@
 {
-  "name": "victorstack-ai/wp-google-preferred-source",
+  "name": "victorstack-ai/google-preferred-source-cta",
   "description": "WordPress plugin to encourage users to add the site as a Google Preferred Source.",
   "type": "wordpress-plugin",
   "license": "GPL-2.0-or-later",
@@ -14,7 +14,7 @@
     "wp-coding-standards/wpcs": "^3.3"
   },
   "autoload": {
-    "classmap": ["class-wp-google-preferred-source.php"]
+    "classmap": ["google-preferred-source-cta.php"]
   },
   "config": {
     "allow-plugins": {

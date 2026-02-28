@@ -26,9 +26,12 @@ phpunit.xml.dist
 grumphp.yml
 
 # Project files
+README.md
 SECURITY.md
 CHANGELOG.md
 CONTRIBUTING.md
+docker-compose.yml
+.wordpress-org/
 
 # OS files
 .DS_Store
